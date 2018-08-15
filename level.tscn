@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://bomb1.gd" type="Script" id=1]
+[ext_resource path="res://0.png" type="Texture" id=2]
+[ext_resource path="res://bomb2.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 7, 7 )
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 7.0
+
+[node name="level" type="Node2D"]
+
+[node name="bomb1" type="KinematicBody2D" parent="."]
+position = Vector2( 182.344, 125.843 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="bomb1"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -4.73 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bomb1"]
+shape = SubResource( 2 )
+
+[node name="bomb2" type="KinematicBody2D" parent="."]
+position = Vector2( 111.734, 121.29 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+motion/sync_to_physics = false
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Sprite" type="Sprite" parent="bomb2"]
+texture = ExtResource( 2 )
+offset = Vector2( 0, -4.73 )
+_sections_unfolded = [ "Offset" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bomb2"]
+shape = SubResource( 1 )
+
